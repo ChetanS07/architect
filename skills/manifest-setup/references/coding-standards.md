@@ -49,15 +49,32 @@ Test: every changed line should trace directly to the user's request.
 4. Comments explain why, not what.
 5. Validate at trust boundaries: API input, env vars, external files,
    cross-process messages. Unvalidated data never goes past the boundary.
-6. Errors are typed and carry a stable code. Never throw strings.
+6. Errors are typed and carry a stable code. Never throw or raise bare
+   strings or generic errors. Codes are `UPPER_SNAKE_CASE`, defined once
+   per feature, and never reused for a different meaning.
 7. Runtime output goes through a leveled logger. CLI stdout and throwaway
    scripts are exempt.
+
+## Security
+
+- No secrets in code, config committed to the repo, or test fixtures. Read
+  them from the environment or a secret store.
+- Database queries are parameterized. Never build queries, shell commands
+  or HTML by string concatenation with untrusted input.
+- Never log secrets, tokens, passwords or personal data.
+
+## Dependencies
+
+- Prefer what's already installed and the standard library.
+- Don't add a dependency without saying why in the PR description. Ask
+  first if it is large, unmaintained, or duplicates one already present.
+- Commit the lockfile with the change that alters it.
 
 ## Testing
 
 - New logic gets a test. A bug fix gets a regression test.
 - Test behaviour through the public interface.
-- Test files are exempt from the error and function-length rules.
+- Test files are also exempt from the error rule (Core 6).
 
 ## TypeScript
 
@@ -70,6 +87,13 @@ Test: every changed line should trace directly to the user's request.
 - Prettier and ESLint configs live at the repo root.
 - Import order: builtins, external, internal.
 
+## Other languages
+
+No language section yet. Use the ecosystem's standard formatter, linter
+and boundary-validation library (for example Ruff and Pydantic for
+Python, `gofmt` and `go vet` for Go). Where the repo already has a
+choice, follow it. Core rules still apply.
+
 ## Enforcement
 
 Lint and typecheck must pass before commit. If tooling can check a rule,
@@ -77,5 +101,5 @@ tooling owns it; don't re-check it by hand.
 
 ## Agents
 
-1. Never edit a file marked `@human-edited: do not regenerate`; stop and ask.
-2. Put the task ID in a commit trailer: `Task: <id>`.
+A file is human-owned when a comment in its first 5 lines contains
+`@human-edited`. Don't edit, regenerate, move or delete it; stop and ask.

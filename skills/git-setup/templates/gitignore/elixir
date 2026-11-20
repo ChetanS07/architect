@@ -1,0 +1,9 @@
+# --- Elixir ---
+_build/
+deps/
+cover/
+doc/
+.elixir_ls/
+*.ez
+erl_crash.dump
+.fetch

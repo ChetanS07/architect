@@ -1,0 +1,10 @@
+# --- Angular ---
+# dist/ and coverage/ are in the node block; tmp/ is in base.
+.angular/
+out-tsc/
+bazel-out/
+.sass-cache/
+connect.lock
+libpeerconnection.log
+testem.log
+typings/

@@ -1,0 +1,85 @@
+# --- Env files ---
+# .env.* already covers every variant; the common ones are listed for clarity.
+.env
+.env.*
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.staging
+*.env
+.envrc
+.flaskenv
+# Templates with placeholder values stay tracked.
+!.env.example
+!.env.sample
+!.env.template
+
+# --- Keys and certificates ---
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.ppk
+*.ovpn
+*.gpg
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+!*.pub
+
+# --- Credentials and secret files ---
+secrets.*
+*.secret
+*.secrets
+secrets/
+credentials.json
+service-account*.json
+*-credentials.json
+client_secret*.json
+.netrc
+.htpasswd
+.npmrc.local
+.pypirc
+.docker/config.json
+.aws/
+.azure/
+.gcloud/
+kubeconfig
+*.kubeconfig
+
+# --- Infrastructure state and variables ---
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editors ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*~
+
+# --- Logs and temp ---
+*.log
+tmp/
+.cache/
+
+# --- Claude Code local files ---
+.claude/settings.local.json

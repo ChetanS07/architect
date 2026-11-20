@@ -1,0 +1,5 @@
+# --- Remix / React Router ---
+# build/ is in the node block; .cache/ is in base.
+/public/build/
+# Generated route types (React Router v7 framework mode)
+.react-router/

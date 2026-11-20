@@ -1,0 +1,13 @@
+# --- Ruby ---
+.bundle/
+vendor/bundle/
+log/
+coverage/
+*.gem
+.byebug_history
+.rspec_status
+config/master.key
+config/credentials/*.key
+public/assets/
+public/packs/
+storage/

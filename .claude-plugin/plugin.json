@@ -1,5 +1,6 @@
 {
-  "name": "genesis-the-architect",
-  "description": "Architecture and dev standards for new projects. Installs branching, folder-structure and coding standards into a repo and registers them in CLAUDE.md.",
-  "version": "0.1.0"
+  "name": "architect",
+  "version": "0.1.0",
+  "description": "Project setup and dev standards. /architect runs every step in order: bootstrap git with secret scanning, install coding/branching/folder standards, and set up GitHub.",
+  "keywords": ["standards", "scaffolding", "git", "github-actions", "project-setup"]
 }

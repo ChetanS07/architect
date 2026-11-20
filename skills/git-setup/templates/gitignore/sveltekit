@@ -1,0 +1,4 @@
+# --- SvelteKit ---
+# .svelte-kit/ and build/ are in the node block.
+# Output of svelte-package when building a component library
+/package/

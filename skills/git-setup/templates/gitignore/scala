@@ -1,0 +1,9 @@
+# --- Scala ---
+target/
+project/target/
+project/project/
+.bsp/
+.metals/
+.bloop/
+.ammonite/
+metals.sbt

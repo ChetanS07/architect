@@ -1,0 +1,6 @@
+# --- Next.js ---
+out/
+next-env.d.ts
+# Local SQLite databases used in development (Prisma's default location)
+prisma/*.db
+prisma/*.db-journal

@@ -1,0 +1,11 @@
+# --- Unreal Engine ---
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Build/
+.vs/
+*.sln
+*.VC.db
+*.opendb
+*.pdb

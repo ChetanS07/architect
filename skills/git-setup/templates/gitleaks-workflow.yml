@@ -1,0 +1,32 @@
+# Secret scan with gitleaks. Installed by git-setup.
+# Pull requests scan only the PR's commits; pushes to the default branch scan full history.
+name: secret-scan
+
+on:
+  pull_request:
+  push:
+    branches: [<default-branch>]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Run gitleaks
+        env:
+          GITLEAKS_IMAGE: ghcr.io/gitleaks/gitleaks:<gitleaks-version>
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          args="git --redact --verbose --exit-code 1"
+          if [ -n "$BASE_SHA" ]; then
+            args="$args --log-opts=$BASE_SHA..$HEAD_SHA"
+          fi
+          docker run --rm -v "$PWD:/repo" "$GITLEAKS_IMAGE" $args /repo

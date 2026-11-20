@@ -1,0 +1,10 @@
+# --- R ---
+.Rhistory
+.RData
+.Rapp.history
+.Ruserdata
+.Rproj.user/
+*.Rcheck/
+renv/library/
+renv/staging/
+rsconnect/

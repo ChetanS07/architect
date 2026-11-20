@@ -1,0 +1,17 @@
+# --- Swift / Xcode ---
+.build/
+.swiftpm/
+DerivedData/
+build/
+Pods/
+Carthage/Build/
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.ipa
+*.dSYM.zip
+*.dSYM
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/

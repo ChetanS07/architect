@@ -51,7 +51,7 @@ One Next.js deployable that owns its database. Explicit-paths mode: no barrel fi
 │   └── testing/                      # fixtures and fakes
 │
 ├── e2e/
-└── docs/standards/
+└── docs/project-manifest/
 ```
 
 Key moves: `app/` imports only a feature's public layers (`components/`, `hooks/`, `services/`, `types/`), and business logic never lives in a `page.tsx` or `route.ts`. `actions/` and `data/` stay internal; anything another feature needs is exposed through `services/`. Queries stay in `features/<name>/data/`, while the tables they use sit in `entities/`. External API calls go in `clients/`, not `data/`. Server-only files in a public layer use the `server-only` package.
@@ -108,7 +108,7 @@ A Next.js frontend (explicit paths) and an Express API (barrels) that share cont
 │           └── billing.ts
 │
 ├── e2e/                              # tests across deployables
-├── docs/{adr,standards}/
+├── docs/{adr,project-manifest}/
 ├── GLOSSARY.md
 └── eslint.boundaries.mjs
 ```
@@ -142,7 +142,7 @@ One Express API that owns its database, in barrel mode. Add `packages/` only whe
 │   │   ├── middleware/
 │   │   └── ports/                    # paymentGateway.ts
 │   └── testing/                      # createTestApp.ts, fakePaymentGateway.ts
-└── docs/standards/
+└── docs/project-manifest/
 ```
 
 Key moves: routes stay thin and call feature handlers through `index.ts`. `shared/ports/` and `shared/adapters/` appear only when the app has an external service worth swapping in tests.
@@ -170,7 +170,7 @@ A marketing or content site with no database of its own. Explicit-paths mode.
 │   │       └── clients/              # submits to an external form service
 │   └── shared/
 │       └── components/
-└── docs/standards/
+└── docs/project-manifest/
 ```
 
 Key moves: pages with no capability behind them can name their own feature. Anything with behaviour, such as a form that submits, is named for the capability even when it appears on only one page. With no database of its own, outside calls go in `clients/`, never `data/`.

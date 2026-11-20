@@ -1,0 +1,5 @@
+# --- Nuxt ---
+# .nuxt/ and .output/ are in the node block.
+.nitro/
+# Local storage and database files from Nitro / NuxtHub in development
+.data/

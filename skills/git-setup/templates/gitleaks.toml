@@ -1,0 +1,6 @@
+# gitleaks configuration: https://github.com/gitleaks/gitleaks#configuration
+# Starts from gitleaks' built-in rules. Add custom [[rules]] or allowlists below.
+title = "gitleaks config"
+
+[extend]
+useDefault = true

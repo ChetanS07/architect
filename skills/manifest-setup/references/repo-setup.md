@@ -1,6 +1,6 @@
 # Repository setup (one-time, for humans)
 
-`branching-and-pr.md` tells the agent how to behave, but it is only text. This file lists the settings that make GitHub enforce the same rules. Do these once per repo. The agent does not do them.
+`branching-and-pr.md` tells the agent how to behave, but it is only text. This file lists the settings that make GitHub enforce the same rules. Do these once per repo. 
 
 `<default>` means the repo's default branch.
 
@@ -75,7 +75,7 @@ EOF
 
 ## Repository files
 
-- `.github/pull_request_template.md`: matches the PR description structure in `branching-and-pr.md`.
+- `.github/pull_request_template.md`: matches the PR description structure in `templates/pr-template.md`.
 - `.github/CODEOWNERS`: assigns required reviewers by path.
 - `CONTRIBUTING.md`: a pointer only. Use one line, for example: `See branching-and-pr.md for branching, commits, and PR rules.` Adjust the path to wherever you keep that file. Do not restate the rules here. `branching-and-pr.md` says CONTRIBUTING.md wins on conflicts, so a second copy of the rules will drift and quietly override the agent's file.
 - `.gitignore`: excludes secrets, env files, build artifacts.
@@ -95,7 +95,7 @@ Hooks run on each person's machine and can be skipped with `--no-verify`. They c
 Every PR must run and pass:
 
 - Lint
-- Type-check
+- Type-check / related check
 - Unit tests
 - Build
 - Secret scan (e.g. `gitleaks`, `trufflehog`)

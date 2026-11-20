@@ -1,0 +1,11 @@
+# --- Android ---
+local.properties
+captures/
+.cxx/
+.externalNativeBuild/
+*.apk
+*.aab
+*.ap_
+*.dex
+google-services.json
+*.hprof

@@ -1,0 +1,6 @@
+# --- Java / JVM ---
+target/
+build/
+.gradle/
+*.class
+out/

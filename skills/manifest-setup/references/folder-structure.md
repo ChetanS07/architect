@@ -2,7 +2,7 @@
 
 **Feature-first beats type-first.** Group files by the business capability they serve (auth, billing, dashboard), not by file type (components, hooks, utils). Type-first layouts give every new file a global bucket to dump into. Feature-first forces "what does this belong to?" before "what kind of file is it?"
 
-Applies to applications. Libraries and CLIs follow only the naming rules. Repo-specific choices live in optional `docs/standards/project-structure.md`; without it, the defaults here apply.
+Applies to applications. Libraries and CLIs follow only the naming rules. Repo-specific choices live in optional `docs/project-manifest/project-structure.md`; without it, the defaults here apply.
 
 ## Where a new file goes
 
@@ -24,9 +24,9 @@ Use the first match:
 ├── apps/{web,api}/src/      # one per deployable; migrations stay outside src/
 ├── packages/contracts/src/  # shapes used by 2+ apps; everything else is duplicated on purpose
 ├── e2e/                     # tests across deployables
-├── docs/{adr/,standards/}
+├── docs/{adr/,project-manifest/}
 ├── GLOSSARY.md              # source of feature names
-└── eslint.boundaries.mjs    # copied from the plugin, version pinned
+└── eslint.boundaries.mjs    # the repo's boundaries lint config (see Import direction)
 
 src/                         # inside each app
 ├── app/ or routes/          # composition: URLs and wiring only, kept thin
