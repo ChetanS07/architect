@@ -19,7 +19,7 @@ Every skill only adds what is missing and asks before replacing anything, so eac
 
 - `branching-and-pr.md`: branch naming, commits and pull requests, with templates
 - `coding-standards.md`: rules for writing and editing code
-- `folder-structure.md` and `folder-structure-scaffolds.md`: project layout
+- `folder-structure.md` and `folder-structure-scaffold.md`: project layout, with a reference tree
 - `repo-setup.md`: manual GitHub steps such as branch protection and required checks
 - `design-system.md`: your design system sources, when you register any
 

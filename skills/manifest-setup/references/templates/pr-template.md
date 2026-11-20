@@ -4,7 +4,7 @@ PR title and body rules for step 3 of [`branching-and-pr.md`](../branching-and-p
 
 ## Title
 
-The title follows the title rules in [`commit-conventions.md`](commit-conventions.md). The human squash-merges, which turns the title into the commit message on `<default>`, so write it for readers of that history.
+The title follows the title rules in [`commit-conventions.md`](commit-conventions.md). The PR is squash-merged, which turns the title into the commit message on `<default>`, so write it for readers of that history.
 
 ## Body
 
@@ -157,6 +157,8 @@ You may use one of these, you may use several, it is unlikely you will use all o
 ### Evidence
 
 Concrete evidence that the change works. Show a before and after.
+
+Use only output you produced yourself while building, such as a command you ran or a screenshot you took. Never claim a run you did not see. If you ran nothing, say so plainly. While the PR is a draft, Evidence can say `Pending`.
 
 Screenshots are S-tier - when the environment is set up for it and the change is visual.
 

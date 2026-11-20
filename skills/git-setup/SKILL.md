@@ -28,7 +28,7 @@ Done when `git -C <root> rev-parse --show-toplevel` prints the root, and you hav
 Each source below selects gitignore blocks from `templates/gitignore/`. Take the union of all of them.
 
 1. **Marker files** at the root, listed in `references/stack-markers.md`.
-2. **The Markdown files in `docs/project-manifest/`**, if that folder exists. They may describe the stack before any code is written. Select the block for each framework, language or platform they name, using the same mapping as `references/stack-markers.md` (for example Next.js selects `nextjs` and `node`, FastAPI selects `python`, Flutter selects `dart`). Skip the generic standards `/manifest-setup` installs (`coding-standards.md`, `folder-structure.md`, `folder-structure-scaffolds.md`, `repo-setup.md`, `branching-and-pr.md`, `templates/`, `design-system.md`): the frameworks in their examples describe no project.
+2. **The Markdown files in `docs/project-manifest/`**, if that folder exists. They may describe the stack before any code is written. Select the block for each framework, language or platform they name, using the same mapping as `references/stack-markers.md` (for example Next.js selects `nextjs` and `node`, FastAPI selects `python`, Flutter selects `dart`). Skip the generic standards `/manifest-setup` installs (`coding-standards.md`, `folder-structure.md`, `folder-structure-scaffold.md`, `repo-setup.md`, `branching-and-pr.md`, `templates/`, `design-system.md`): the frameworks in their examples describe no project.
 
 If a doc names a framework or language that has no matching block, skip it and mention it in the report. Don't ask about it.
 

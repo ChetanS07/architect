@@ -24,44 +24,41 @@ When a repo rule overrides this file, name the rule that won in your next reply.
 
 Trunk-based: `<default>` is always deployable, and work lands through short-lived branches off it. Each step ends on its **done** line; reach it before moving on.
 
-Steps 1, 2, 3, and 5 each apply a conventions file from `templates/`. Read the named file at the start of its step.
+Steps 1 through 5 each apply a conventions file from `templates/`. Read the named file at the start of its step.
 
-1. **Start the branch.** The working tree must be clean; if it holds changes you did not make, ask the human. Then `git fetch origin && git switch --no-track -c <type>/<short-description> origin/<default>`, named per [`templates/branch-conventions.md`](templates/branch-conventions.md).
-   Done: `git status -sb` shows the new branch, clean, tracking nothing yet.
+1. **Start the branch.** If the working tree holds changes you did not make, ask the human. Changes you made in this session carry over to the new branch. Then `git fetch origin && git switch --no-track -c <type>/<short-description> origin/<default>`, named per [`templates/branch-conventions.md`](templates/branch-conventions.md). If the switch refuses because your changes would be overwritten, ask the human.
+   Done: `git status -sb` shows the new branch, tracking nothing yet, with no changes other than your own.
 
 2. **Commit as each piece works.** Every commit follows [`templates/commit-conventions.md`](templates/commit-conventions.md). Stage files by name, then read `git diff --cached` for secrets (`.env`, keys, tokens) before committing. When a pre-commit hook fails, fix the cause and commit again.
    Done: every piece of working code is in a commit, and the staged diff was read before each one.
 
-3. **Push and open a draft PR early.** `git push -u origin <branch>`, then `gh pr create --draft --base <default> --title "<title>" --body-file <file>`, with the title and body written per [`templates/pr-template.md`](templates/pr-template.md).
+3. **Push and open a draft PR early.** `git push -u origin <branch>`, then `gh pr create --draft --base <default> --title "<title>" --body-file <file>`, with the title and body written per [`templates/pr-template.md`](templates/pr-template.md). Evidence can say `Pending` at this point; step 5 fills it in.
    Done: `gh pr view` shows a draft PR from this branch.
 
-4. **Keep pushing.** Commit follow-up work on the same branch and `git push`. CI and reviewers see only pushed commits. If `<default>` has moved, merge `origin/<default>` into the branch (the branch is shared now, so merge rather than rebase).
-   Done: `git status -sb` shows the branch level with its upstream.
+4. **Keep pushing.** Commit follow-up work on the same branch and `git push`. CI and reviewers see only pushed commits. If `<default>` has moved, merge `origin/<default>` into the branch (the branch is shared now, so merge rather than rebase). After each push, measure size per the Size section of [`templates/branch-conventions.md`](templates/branch-conventions.md), so a split is decided while it is still cheap.
+   Done: `git status -sb` shows the branch level with its upstream, and the diff is within the size limit.
 
-5. **Mark ready and hand off.** Measure size per the Size section of [`templates/branch-conventions.md`](templates/branch-conventions.md). Then run `gh pr ready` and report the PR link to the human. A separate workflow owns all checks (lint, type-check, tests, build), so your step ends once the PR is marked ready.
-   Done: the PR is marked ready, and the human has the link.
-
-6. **Answer review.** Fix each comment in new commits on the branch, push, and reply to each thread with what changed. Then repeat step 5.
-   Done: every review thread has a reply or a fix, and the PR is marked ready again.
+5. **Mark ready and stop.** Rewrite the PR body per [`templates/pr-template.md`](templates/pr-template.md) with the final Summary and Evidence, and apply it with `gh pr edit --body-file <file>`. Then run `gh pr ready` and report the PR link to the human. This workflow ends here: take no further action on the PR.
+   Done: the PR body is current, the PR is marked ready, and the human has the link.
 
 ## Hard stops
 
 Ask the human before any of these:
 
 - Pushing directly to `<default>`.
-- Merging any PR, including your own, or bypassing protection (`gh pr merge --admin`). The human merges, by squash-merge.
+- Merging any PR, including your own, or bypassing protection (`gh pr merge --admin`).
 - Force-pushing a shared branch, `--force-with-lease` included, or any other rewrite of shared history (amend, rebase).
 - Any command carrying `--force`, `-f`, or `--no-verify`.
 - `git reset --hard` or `git clean -fd` where they would discard commits or changes that exist nowhere else.
 - Deleting any branch, locally or on the remote. A separate workflow cleans up branches after merge.
-- Marking ready a PR over 1500 lines of diff (see `templates/branch-conventions.md`).
+- Continuing work on a branch whose diff exceeds 1500 lines (see `templates/branch-conventions.md`).
 
 ## Recovery
 
 - **Merge conflict**: list the conflicting files and show the conflicting hunks, then ask the human how to resolve each.
-- **Commit landed on local `<default>`**: keep it local. Run `git branch <type>/<name>` to save the commit on a new branch, then `git reset --hard origin/<default>` on `<default>` (the commit now lives on the new branch, so this discards nothing). Continue from step 3 on the new branch.
+- **Commit landed on local `<default>`**: keep it local. Run `git branch <type>/<name>` to save the commit on a new branch. If `git status` shows uncommitted changes, `git stash` them, since the reset below would wipe them. Then `git reset --hard origin/<default>` on `<default>` (the commit now lives on the new branch and the tree is clean, so this discards nothing), `git switch <type>/<name>`, and `git stash pop` if you stashed. Continue from step 3 on the new branch.
 - **Secret pushed**: halt all git activity and report to the human at once. The human rotates the credential; leave the branch and history as they are, since rewriting history cannot undo a leak.
 
 ## Not covered
 
-CI and PR checks, and branch cleanup after merge (separate workflows own both), release tagging and versioning, deployment, monorepo tooling, production hotfixes, submodules. For any of these, ask the human for the workflow.
+Anything after the PR is marked ready, including CI and PR checks, review follow-up, merging, and branch cleanup (separate workflows own these); release tagging and versioning, deployment, monorepo tooling, production hotfixes, submodules. For any of these, ask the human for the workflow.
