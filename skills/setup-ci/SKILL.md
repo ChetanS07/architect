@@ -66,5 +66,5 @@ Tell the user in a few lines:
 - The workflow file and its jobs, one line each.
 - Where the stack came from: the manifest file, the repo, or the user's answers.
 - Items marked `(assumed)` that the user should verify.
-- That the job names are the status checks to mark required in branch protection (`docs/project-manifest/repo-setup.md`), after CI has run once on a PR.
+- That the job names are the status checks to mark required in branch protection (https://github.com/ChetanS07/architect/blob/main/docs/repo-setup.md), after CI has run once on a PR.
 - That nothing was committed.

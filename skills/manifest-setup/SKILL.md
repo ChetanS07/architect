@@ -79,4 +79,4 @@ Tell the user in a few lines:
 - Whether `design-system.md` was written, updated, kept, removed or absent, and whether its pointer is in `CLAUDE.md`.
 - Which file the Standards block went into.
 - The files in `docs/project-manifest/` are theirs to edit; a re-run asks before replacing or deleting any of them. One thing is not protected: the first `## Standards` section in `CLAUDE.md` is replaced on every run.
-- `docs/project-manifest/repo-setup.md` is their checklist for branch protection, hooks and CI, to work through by hand.
+- Branch protection, hooks and required checks are manual; the plugin's checklist is at https://github.com/ChetanS07/architect/blob/main/docs/repo-setup.md.

@@ -53,7 +53,7 @@ Report to the user, grouped by stage, a few lines each:
 - Stages not run, and why: not applicable, not installed, or skipped after a stop.
 - **Ended early**: the stage it stopped at and why; once that is fixed, re-run that stage alone or `/architect`.
 - Whether the files were committed and pushed: they are only when `github-setup` ran to its end; otherwise they are uncommitted.
-- Manual next steps: work through `docs/project-manifest/repo-setup.md` (branch protection, required checks: the CI jobs plus `secret-scan`).
+- Manual next steps: branch protection and required checks (the CI jobs plus `secret-scan`), per the plugin's checklist at https://github.com/ChetanS07/architect/blob/main/docs/repo-setup.md.
 - Any stage re-runs alone: `/git-setup`, `/manifest-setup`, `/github-setup`. When the stack changes, re-run `/git-setup` to add its `.gitignore` blocks.
 
 Done when the report is shown.

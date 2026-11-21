@@ -94,4 +94,4 @@ Tell the user in a few lines:
 - origin's URL, and whether it was added, kept or replaced.
 - The merge method allowed, and that head branches are deleted after merge (or that step 4 was skipped for lack of admin).
 - What was pushed: the commit(s) and the branch, or that the push was skipped.
-- Next: branch protection and required checks are still manual; see `docs/project-manifest/repo-setup.md` when it exists.
+- Next: branch protection and required checks are still manual; see the plugin's repo-setup checklist (https://github.com/ChetanS07/architect/blob/main/docs/repo-setup.md).

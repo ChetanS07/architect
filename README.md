@@ -21,14 +21,13 @@ Every skill only adds what is missing and asks before replacing anything, so eac
 - `branching-and-pr.md`: branch naming, commits and pull requests, with templates
 - `coding-standards.md`: rules for writing and editing code
 - `folder-structure.md` and `folder-structure-scaffold.md`: project layout, with a reference tree
-- `repo-setup.md`: manual GitHub steps such as branch protection and required checks
 - `design-system.md`: your design system sources, when you register any
 
 The files are yours to edit; a re-run asks before overwriting one you changed.
 
 ## After running
 
-Work through `docs/project-manifest/repo-setup.md` to turn on branch protection and make the CI jobs plus `secret-scan` required checks. When the project's stack changes, re-run `/git-setup` to add the matching `.gitignore` blocks.
+Work through [`docs/repo-setup.md`](docs/repo-setup.md) to turn on branch protection and make the CI jobs plus `secret-scan` required checks. When the project's stack changes, re-run `/git-setup` to add the matching `.gitignore` blocks.
 
 ## License
 

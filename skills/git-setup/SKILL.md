@@ -28,7 +28,7 @@ Done when `git -C <root> rev-parse --show-toplevel` prints the root, and you hav
 Each source below selects gitignore blocks from `templates/gitignore/`. Take the union of all of them.
 
 1. **Marker files** at the root, listed in `references/stack-markers.md`.
-2. **The Markdown files in `docs/project-manifest/`**, if that folder exists. They may describe the stack before any code is written. Select the block for each framework, language or platform they name, using the same mapping as `references/stack-markers.md` (for example Next.js selects `nextjs` and `node`, FastAPI selects `python`, Flutter selects `dart`). Skip the generic standards `/manifest-setup` installs (`coding-standards.md`, `folder-structure.md`, `folder-structure-scaffold.md`, `repo-setup.md`, `branching-and-pr.md`, `templates/`, `design-system.md`): the frameworks in their examples describe no project.
+2. **The Markdown files in `docs/project-manifest/`**, if that folder exists. They may describe the stack before any code is written. Select the block for each framework, language or platform they name, using the same mapping as `references/stack-markers.md` (for example Next.js selects `nextjs` and `node`, FastAPI selects `python`, Flutter selects `dart`). Skip the generic standards `/manifest-setup` installs (`coding-standards.md`, `folder-structure.md`, `folder-structure-scaffold.md`, `branching-and-pr.md`, `templates/`, `design-system.md`, and `repo-setup.md` left by older installs): the frameworks in their examples describe no project.
 
 If a doc names a framework or language that has no matching block, skip it and mention it in the report. Don't ask about it.
 
@@ -87,7 +87,7 @@ Four parts, each checked on its own:
    - `<default-branch>`: the default branch recorded in step 1.
    - `<gitleaks-version>`: the highest `v8.x.y` tag from `git ls-remote --tags https://github.com/gitleaks/gitleaks`, kept as is (for example `v8.30.1`); the container image uses the same tags.
 
-   The job is named `secret-scan`, the check name `docs/project-manifest/repo-setup.md` marks as required in branch protection.
+   The job is named `secret-scan`, the check name the plugin's repo-setup checklist (https://github.com/ChetanS07/architect/blob/main/docs/repo-setup.md) marks as required in branch protection.
 
 Gitleaks counts as present when the config, the hook, the binary and the CI workflow all are.
 

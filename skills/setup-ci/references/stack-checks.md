@@ -11,7 +11,7 @@ Recommend one job for each of these, skipping one only when the stack has no suc
 - `test`: unit tests. Integration tests join this job, or get their own `integration-test` job when they need services.
 - `build`: production build, binary or package.
 
-These names match the required checks in `docs/project-manifest/repo-setup.md`. Secret scanning is git-setup's `secret-scan` workflow; recommend it only when that workflow is absent.
+These names match the required checks in the plugin's repo-setup checklist (https://github.com/ChetanS07/architect/blob/main/docs/repo-setup.md). Secret scanning is git-setup's `secret-scan` workflow; recommend it only when that workflow is absent.
 
 Then add the stack's extras below where the stack profile calls for them.
 
