@@ -1,11 +1,11 @@
 ---
-name: github-setup
+name: setup-github
 description: Connect the repo to GitHub — sign in to gh, pick or create the repository, set origin, set the PR merge method, and make the first push. Use when the user asks to set up GitHub or push the repo to GitHub for the first time, or when /architect runs it.
 ---
 
 Connect the local git repo to a GitHub repository the user owns or administers. The skill **stops** (ends without finishing, and says why) only where a step below says so; every other outcome continues to the next step. It never bypasses a git hook.
 
-The root is the `root=` argument when one is given; otherwise `git rev-parse --show-toplevel`. If that fails, stop: "Not a git repo. Run `/git-setup` first."
+The root is the `root=` argument when one is given; otherwise `git rev-parse --show-toplevel`. If that fails, stop: "Not a git repo. Run `/setup-git` first."
 
 ## 1. Sign in to gh
 

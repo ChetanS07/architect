@@ -1,4 +1,4 @@
-# Secret scan with gitleaks. Installed by git-setup.
+# Secret scan with gitleaks. Installed by setup-git.
 # Pull requests scan only the PR's commits; pushes to the default branch scan full history.
 name: secret-scan
 

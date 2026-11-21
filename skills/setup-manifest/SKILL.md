@@ -1,5 +1,5 @@
 ---
-name: manifest-setup
+name: setup-manifest
 description: Install the architect dev standards into docs/project-manifest/ and register them in CLAUDE.md. Use when the user asks to install or update the project standards, or when /architect runs it.
 ---
 

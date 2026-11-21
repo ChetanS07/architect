@@ -7,11 +7,11 @@ Write one GitHub Actions workflow that runs the project's checks on every pull r
 
 ## 1. Find the repo and existing CI
 
-Walk up from the working directory to the nearest directory containing `.git`; that is the root. If none is found, stop and tell the user CI needs a git repo (`/git-setup` creates one).
+Walk up from the working directory to the nearest directory containing `.git`; that is the root. If none is found, stop and tell the user CI needs a git repo (`/setup-git` creates one).
 
 Find the default branch: `git symbolic-ref --short refs/remotes/origin/HEAD` with `origin/` stripped; failing that, whichever of `main` or `master` exists locally; failing that, ask.
 
-Read every file in `.github/workflows/`. A workflow that runs on `pull_request` and runs lint, tests or a build counts as **existing CI**; a secret-scan-only workflow (such as git-setup's `secret-scan.yml`) does not. If existing CI is found, ask: "`<file>` already runs `<jobs>` on pull requests. Extend it, replace it, or stop?" Stop ends the skill.
+Read every file in `.github/workflows/`. A workflow that runs on `pull_request` and runs lint, tests or a build counts as **existing CI**; a secret-scan-only workflow (such as setup-git's `secret-scan.yml`) does not. If existing CI is found, ask: "`<file>` already runs `<jobs>` on pull requests. Extend it, replace it, or stop?" Stop ends the skill.
 
 Done when the root, the default branch, and the target (new `ci.yml`, or the existing file to extend or replace) are known.
 

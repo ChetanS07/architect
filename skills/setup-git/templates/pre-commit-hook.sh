@@ -1,5 +1,5 @@
 #!/bin/sh
-# Secret scan of staged changes. Installed by git-setup.
+# Secret scan of staged changes. Installed by setup-git.
 # Never exits on success, so it is safe to insert anywhere in an existing hook.
 if command -v gitleaks >/dev/null 2>&1; then
   gitleaks git --pre-commit --staged --redact --verbose || exit 1

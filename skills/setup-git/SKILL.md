@@ -1,5 +1,5 @@
 ---
-name: git-setup
+name: setup-git
 description: Initialize git and install .gitattributes, .gitignore, gitleaks secret scanning, .editorconfig and README.md, filling in whatever is missing. Use when the user asks to set up git or secret scanning for a repo, or when /architect runs it.
 ---
 
@@ -28,7 +28,7 @@ Done when `git -C <root> rev-parse --show-toplevel` prints the root, and you hav
 Each source below selects gitignore blocks from `templates/gitignore/`. Take the union of all of them.
 
 1. **Marker files** at the root, listed in `references/stack-markers.md`.
-2. **The Markdown files in `docs/project-manifest/`**, if that folder exists. They may describe the stack before any code is written. Select the block for each framework, language or platform they name, using the same mapping as `references/stack-markers.md` (for example Next.js selects `nextjs` and `node`, FastAPI selects `python`, Flutter selects `dart`). Skip the generic standards `/manifest-setup` installs (`coding-standards.md`, `folder-structure.md`, `folder-structure-scaffold.md`, `branching-and-pr.md`, `templates/`, `design-system.md`, and `repo-setup.md` left by older installs): the frameworks in their examples describe no project.
+2. **The Markdown files in `docs/project-manifest/`**, if that folder exists. They may describe the stack before any code is written. Select the block for each framework, language or platform they name, using the same mapping as `references/stack-markers.md` (for example Next.js selects `nextjs` and `node`, FastAPI selects `python`, Flutter selects `dart`). Skip the generic standards `/setup-manifest` installs (`coding-standards.md`, `folder-structure.md`, `folder-structure-scaffold.md`, `branching-and-pr.md`, `templates/`, `design-system.md`, and `repo-setup.md` left by older installs): the frameworks in their examples describe no project.
 
 If a doc names a framework or language that has no matching block, skip it and mention it in the report. Don't ask about it.
 
@@ -43,7 +43,7 @@ Work through every item below and give each an outcome: created, merged (with wh
 ### .gitattributes
 
 - Missing: copy `templates/gitattributes` to `.gitattributes`.
-- Exists: for each attribute line in the template, compare its pattern (the first token). Append the lines whose pattern does not appear in the file, under a `# Added by git-setup` comment. A pattern the repo already sets keeps the repo's attributes.
+- Exists: for each attribute line in the template, compare its pattern (the first token). Append the lines whose pattern does not appear in the file, under a `# Added by setup-git` comment. A pattern the repo already sets keeps the repo's attributes.
 
 ### .gitignore
 

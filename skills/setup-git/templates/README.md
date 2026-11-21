@@ -1,4 +1,4 @@
-<!-- git-setup: filling this template. Delete this whole comment from the written README.md.
+<!-- setup-git: filling this template. Delete this whole comment from the written README.md.
 
 Replace each placeholder:
 
