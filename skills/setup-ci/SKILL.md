@@ -1,9 +1,9 @@
 ---
 name: setup-ci
-description: Create a GitHub Actions CI pipeline that runs the project's checks, tests and build on every pull request, with the check list chosen from the stack and approved by the user. Use when the user asks to set up or add CI, or when step 3 of branching-and-pr.md finds no CI workflow.
+description: Create a GitHub Actions CI pipeline that runs the project's checks, tests and build on every pull request, with the check list chosen from the stack and approved by the user. Use when the user asks to set up or add CI, or when step 3 of branching-and-pr.md finds no CI workflow, or when /architect runs it.
 ---
 
-Write one GitHub Actions workflow that runs the project's checks on every pull request. The stack decides what to recommend; the user decides what runs. Nothing is written until the user approves the **final list**. This skill never commits: when `branching-and-pr.md` step 3 called it, that workflow commits the file.
+Write one GitHub Actions workflow that runs the project's checks on every pull request. The stack decides what to recommend; the user decides what runs. Nothing is written until the user approves the **final list**. This skill never commits: when `branching-and-pr.md` step 3 called it, that workflow commits the file; when `/architect` ran it, `setup-github` commits it.
 
 ## 1. Find the repo and existing CI
 

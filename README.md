@@ -1,16 +1,16 @@
 # architect
 
-A Claude Code plugin that sets up a project and installs dev standards for coding agents: a git baseline with secret scanning, coding, branching and folder-structure standards registered in `CLAUDE.md`, and a connected GitHub repo.
+A Claude Code plugin that sets up a project and installs dev standards for coding agents: a git baseline with secret scanning, coding, branching and folder-structure standards registered in `CLAUDE.md`, a stack-aware CI pipeline, and a connected GitHub repo.
 
 ## Skills
 
 | Command | What it does |
 |---------|--------------|
-| `/architect` | Runs the three stages below in order, then reports what each one did. |
+| `/architect` | Runs the four stages below in order, then reports what each one did. |
 | `/setup-git` | Initializes git and adds `.gitattributes`, a stack-aware `.gitignore`, gitleaks secret scanning (config, pre-commit hook and a `secret-scan` GitHub Actions workflow), `.editorconfig` and `README.md`. Never commits. |
 | `/setup-manifest` | Copies the standards into `docs/project-manifest/` and adds a `## Standards` section to `CLAUDE.md` so agents read the right file before the work it covers. Optionally registers a design system. Never commits. |
-| `/setup-github` | Signs in to `gh`, picks or creates the GitHub repo, sets `origin`, restricts PRs to one merge method, then makes the first commit and push. |
 | `/setup-ci` | Recommends CI checks, tests and builds from the stack in `docs/project-manifest/tech-stack-and-low-level-design.md` (or asks for the stack), loops on your changes until you approve the final list, then writes `.github/workflows/ci.yml`. Never commits. |
+| `/setup-github` | Signs in to `gh`, picks or creates the GitHub repo, sets `origin`, restricts PRs to one merge method, then makes the first commit and push. |
 
 Every skill only adds what is missing and asks before replacing anything, so each is safe to re-run on its own. If `/architect` is interrupted, run it again or run the unfinished stage alone.
 

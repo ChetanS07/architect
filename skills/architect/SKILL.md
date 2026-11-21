@@ -1,16 +1,17 @@
 ---
 name: architect
-description: Set up a project end to end — bootstrap git, install the standards, set up GitHub.
+description: Set up a project end to end — bootstrap git, install the standards, add CI, set up GitHub.
 disable-model-invocation: true
 ---
 
-Run this plugin's three **stages** in order. Each stage is a sibling skill that writes its own files and asks its own questions. `setup-git` and `setup-manifest` never commit; only `setup-github` commits, pushes, and changes the GitHub remote. This skill picks the root, runs the stages in order, and reports the outcome. It never commits or pushes itself.
+Run this plugin's four **stages** in order. Each stage is a sibling skill that writes its own files and asks its own questions. `setup-git`, `setup-manifest` and `setup-ci` never commit; only `setup-github` commits, pushes, and changes the GitHub remote. This skill picks the root, runs the stages in order, and reports the outcome. It never commits or pushes itself.
 
 | # | Stage | Skill | Runs when |
 |---|-------|-------|-----------|
 | 1 | Git baseline | `architect:setup-git` | always |
 | 2 | Standards | `architect:setup-manifest` | always |
-| 3 | GitHub | `architect:setup-github` | stages 1 and 2 are done, since it builds on the repo and standards they create |
+| 3 | CI pipeline | `architect:setup-ci` | stage 1 is done, since CI needs a git repo; it reads the stack from the standards stage 2 installs |
+| 4 | GitHub | `architect:setup-github` | stages 1 and 2 are done, since it builds on the repo and standards they create; it also commits stage 3's workflow when that stage ran |
 
 Every stage is safe to re-run: each only adds, and asks before replacing. An interrupted run is recovered by running `/architect` again, or the unfinished stage alone.
 
@@ -54,6 +55,6 @@ Report to the user, grouped by stage, a few lines each:
 - **Ended early**: the stage it stopped at and why; once that is fixed, re-run that stage alone or `/architect`.
 - Whether the files were committed and pushed: they are only when `setup-github` ran to its end; otherwise they are uncommitted.
 - Manual next steps: branch protection and required checks (the CI jobs plus `secret-scan`), per the plugin's checklist at https://github.com/ChetanS07/architect/blob/main/docs/repo-setup.md.
-- Any stage re-runs alone: `/setup-git`, `/setup-manifest`, `/setup-github`. When the stack changes, re-run `/setup-git` to add its `.gitignore` blocks.
+- Any stage re-runs alone: `/setup-git`, `/setup-manifest`, `/setup-ci`, `/setup-github`. When the stack changes, re-run `/setup-git` to add its `.gitignore` blocks.
 
 Done when the report is shown.

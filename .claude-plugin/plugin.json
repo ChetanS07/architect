@@ -1,6 +1,6 @@
 {
   "name": "architect",
   "version": "0.1.0",
-  "description": "Project setup and dev standards. /architect runs every step in order: bootstrap git with secret scanning, install coding/branching/folder standards, and set up GitHub.",
+  "description": "Project setup and dev standards. /architect runs every step in order: bootstrap git with secret scanning, install coding/branching/folder standards, add a stack-aware CI pipeline, and set up GitHub.",
   "keywords": ["standards", "scaffolding", "git", "github-actions", "project-setup"]
 }
