@@ -16,4 +16,4 @@ git diff --shortstat origin/<default>...HEAD -- . ':(exclude)package-lock.json' 
 
 Generated files are those marked `linguist-generated` in `.gitattributes`, plus build output you can see is generated.
 
-Measure after every push (step 4), not only at the end. Aim under 1000 lines. Past 1000, tell the human the branch is getting large. Past 1500 is a hard stop: stop work and ask the human whether and how to split. The usual split is to move independent pieces onto their own branches off `<default>`, each with its own PR. If later pieces depend on earlier ones, let the human choose between stacking them and landing them in order.
+Measure after every push (step 5), not only at the end. Aim under 1000 lines. Past 1000, tell the human the branch is getting large. Past 1500 is a hard stop: stop work and ask the human whether and how to split. The usual split is to move independent pieces onto their own branches off `<default>`, each with its own PR. If later pieces depend on earlier ones, let the human choose between stacking them and landing them in order.

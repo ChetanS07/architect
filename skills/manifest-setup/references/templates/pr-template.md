@@ -1,6 +1,6 @@
 # PR template
 
-PR title and body rules for step 3 of [`branching-and-pr.md`](../branching-and-pr.md). Terms (`<default>`) are defined there. When the repo has `.github/pull_request_template.md`, that template wins; fill it using the guidance below where its sections overlap.
+PR title and body rules for steps 4 and 6 of [`branching-and-pr.md`](../branching-and-pr.md). Terms (`<default>`) are defined there. When the repo has `.github/pull_request_template.md`, that template wins; fill it using the guidance below where its sections overlap.
 
 ## Title
 
